@@ -7,12 +7,14 @@
 
 int func();
 int func2();
+int func3_a();
 
 int main()
 {
 	setlocale(LC_ALL, "ru_RU.UTF-8");
 	func();
 	func2();
+	func3_a();
 }
 
 int func()
@@ -51,3 +53,21 @@ int func2()
 
 }
 
+int func3_a()
+{
+	double a = 4.5;
+	double b = 7.1;
+	double y = 9.9;
+
+	int A = (int)a;
+	int B = (int)b;
+	int C = (int)y;
+
+	int a_con = (A % 2 == 0) != (B % 2 == 0);
+	int b_con = (A % 3 == 0) && (B % 3 == 0) && (C % 3 == 0);
+
+	printf("Использованные числа A = %d, B = %d, C = %d\n\n", A, B, C);
+	printf("Условие а) выполнено 1 - да, 0 - нет): %d\n", a_con);
+	printf("Условие б) выполнено 1 - да, 0 - нет): %d\n", b_con);
+	return 0;
+}
