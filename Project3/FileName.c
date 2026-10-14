@@ -9,13 +9,29 @@ int func();
 int func2();
 int func3_a();
 
+double uravn(double x_, double y_, double z_);
+
 int main()
 {
 	setlocale(LC_ALL, "ru_RU.UTF-8");
-	func();
-	func2();
-	func3_a();
+	double x, y, z, c;
+	x = 3.251;
+	y = 0.325;
+	z = 0.466e-4;
+	c = uravn(x,y,z);
+	
+	printf("Исходные данные:\n");
+	printf("  x = %.3f\n", x);
+	printf("  y = %.3f\n", y);
+	printf("  z = %.7f (%.3e)\n", z, z);
+	printf("\nРезультат вычислений:\n");
+	printf("  c = %.6f\n", c);
+	printf("Ожидаемый ответ из таблицы:\n");
+	printf("  c = 4.251433\n");
+
+	return 0;
 }
+
 
 int func()
 {
@@ -70,4 +86,18 @@ int func3_a()
 	printf("Условие а) выполнено 1 - да, 0 - нет): %d\n", a_con);
 	printf("Условие б) выполнено 1 - да, 0 - нет): %d\n", b_con);
 	return 0;
+}
+
+double uravn(double x_, double y_, double z_)
+{
+	double c;
+	double part1, part2, num, denom;
+	
+	part1 = pow(pow(2.0, y_), x_);
+	part2 = pow(pow(3.0, x_), y_);
+
+	num = y_ * (atan(z_) - M_PI / 6.0);
+	denom = fabs(x_) + 1.0 / (y_ * y_ + 1.0);
+	c = part1 + part2 - (num / denom);
+	return c;
 }
