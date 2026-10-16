@@ -13,11 +13,15 @@ double uravn(double x_, double y_, double z_);
 
 int main()
 {
+	func();
+	func2();
+	func3_a();
+
 	setlocale(LC_ALL, "ru_RU.UTF-8");
 	double x, y, z, c;
-	x = 3.251;
-	y = 0.325;
-	z = 0.466e-4;
+	scanf("%lf", &x);
+	scanf("%lf", &y);
+	scanf("%lf", &z);
 	c = uravn(x,y,z);
 	
 	printf("Исходные данные:\n");
